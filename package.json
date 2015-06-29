@@ -1,0 +1,54 @@
+{
+  "name": "redux-boilerplate",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "",
+  "author": "Lee Bannard <l_bannard@yahoo.co.uk>",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "scripts": {
+    "build": "npm run clean && webpack",
+    "clean": "rm -rf dist",
+    "dist": "npm run build -- --config webpack.config.production.js",
+    "lint": "eslint lib",
+    "start": "npm run build && node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "babel-runtime": "^5.6.15",
+    "classnames": "^2.1.2",
+    "immutable": "^3.7.4",
+    "js-csp": "^0.4.1",
+    "parse-link-header": "^0.2.0",
+    "react": "^0.13.3",
+    "react-pure-render": "^1.0.2",
+    "react-router": "^1.0.0-beta2",
+    "redux": "^0.12.0",
+    "transducers.js": "^0.3.2",
+    "whatwg-fetch": "^0.9.0"
+  },
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "babel-core": "^5.6.15",
+    "babel-eslint": "^3.1.19",
+    "babel-loader": "^5.2.2",
+    "css-loader": "^0.15.1",
+    "cssnext-loader": "^1.0.1",
+    "eslint": "^0.24.0",
+    "eslint-plugin-react": "^2.6.2",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "html-webpack-plugin": "^1.5.2",
+    "node-libs-browser": "^0.5.2",
+    "normalize.css": "^3.0.3",
+    "react-hot-loader": "^1.2.7",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.10.0",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
