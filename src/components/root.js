@@ -1,18 +1,17 @@
 import React, { PropTypes } from 'react'
 import { Provider } from 'redux/react'
-import { createDispatcher, createRedux, composeStores } from 'redux'
+import { createStore, composeReducers } from 'redux'
 import { loggerMiddleware, thunkMiddleware } from '../middleware'
 import Router from './Router';
 import History from 'react-router/lib/BrowserHistory';
 import * as reducers from '../reducers'
 
 
-const dispatcher = createDispatcher(
-  composeStores(reducers),
+const store = createStore(
+  composeReducers(reducers),
+  {},
   getState => [ thunkMiddleware(getState), loggerMiddleware ]
 )
-
-const redux = createRedux(dispatcher)
 
 export default class Root extends React.Component {
 
@@ -23,7 +22,7 @@ export default class Root extends React.Component {
   render () {
     const { history } = this.props
     return (
-      <Provider redux={redux}>
+      <Provider store={store}>
         {() => <Router {...{ history }} />}
       </Provider>
     );
