@@ -5,7 +5,7 @@ import Immutable from 'immutable';
 import { helloSelector } from '../selectors/helloWorld';
 
 @connect(helloSelector)
-class HelloWorld extends React.Component {
+class HelloWorld {
 
   static propTypes = {
     helloWorld: PropTypes.instanceOf(Immutable.Map).isRequired
