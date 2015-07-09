@@ -5,7 +5,7 @@ import createReducer from '../util/createReducer';
 const initialState = Immutable.Map({name: 'Turtle'});
 
 export default createReducer(initialState, {
-  [ActionTypes.Test.something](state, action) {
+  [ActionTypes.HelloWorld.changeName](state, action) {
     let name = action.name;
     switch(name) {
     case 'Turtle':

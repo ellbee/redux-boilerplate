@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'redux/react';
-import * as TestActionCreators from '../actions/test';
+import * as HelloWorldActionCreators from '../actions/helloWorld.js';
 import Immutable from 'immutable';
 import { helloSelector } from '../selectors/helloWorld';
 
@@ -13,7 +13,7 @@ class HelloWorld {
 
   changeName() {
     const { props: { dispatch } } = this;
-    dispatch(TestActionCreators.something(this.props.helloWorld.get('name')));
+    dispatch(HelloWorldActionCreators.changeName(this.props.helloWorld.get('name')));
   }
 
   render() {
