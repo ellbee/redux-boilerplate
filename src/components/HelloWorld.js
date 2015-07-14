@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'redux/react';
+import { connect } from 'react-redux';
 import * as HelloWorldActionCreators from '../actions/helloWorld.js';
 import Immutable from 'immutable';
 import { helloSelector } from '../selectors/helloWorld';

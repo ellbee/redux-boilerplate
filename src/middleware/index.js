@@ -1,2 +1,2 @@
-export { default as thunkMiddleware } from './thunk'
-export { default as loggerMiddleware } from './logger'
+export { default as thunk } from './thunk'
+export { default as logger } from './logger'

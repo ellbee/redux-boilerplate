@@ -1,17 +1,13 @@
 import React, { PropTypes } from 'react'
-import { Provider } from 'redux/react'
-import { createStore, composeReducers } from 'redux'
-import { loggerMiddleware, thunkMiddleware } from '../middleware'
+import { Provider } from 'react-redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { logger, thunk } from '../middleware'
 import Router from './Router';
 import History from 'react-router/lib/BrowserHistory';
 import * as reducers from '../reducers'
 
-
-const store = createStore(
-  composeReducers(reducers),
-  {},
-  getState => [ thunkMiddleware(getState), loggerMiddleware ]
-)
+const createStoreWithMiddleware = applyMiddleware(logger, thunk)(createStore);
+const store = createStoreWithMiddleware(combineReducers(reducers));
 
 export default class Root extends React.Component {
 

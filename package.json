@@ -29,7 +29,8 @@
     "react": "^0.13.3",
     "react-pure-render": "^1.0.2",
     "react-router": "^1.0.0-beta2",
-    "redux": "^1.0.0-alpha",
+    "redux": "^1.0.0-rc",
+    "react-redux": "^0.2.1",
     "reselect": "0.0.1",
     "transducers.js": "^0.3.2",
     "whatwg-fetch": "^0.9.0"
