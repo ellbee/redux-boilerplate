@@ -1,18 +1,23 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { devTools, persistState } from 'redux-devtools';
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import { logger, thunk } from '../middleware';
 import Router from './Router';
 import * as reducers from '../reducers';
+import { devTools, persistState } from 'redux-devtools';
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
-const finalCreateStore = compose(
-  applyMiddleware(logger, thunk),
-  devTools(),
-  persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
-  createStore
-);
+let finalCreateStore;
+if(__DEV_TOOLS__) {
+  finalCreateStore = compose(
+    applyMiddleware(logger, thunk),
+    devTools(),
+    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
+    createStore
+  );
+} else {
+  finalCreateStore = applyMiddleware(logger, thunk)(createStore);
+}
 
 const reducer = combineReducers(reducers);
 const store = finalCreateStore(reducer);
@@ -30,10 +35,12 @@ export default class Root extends React.Component {
         <Provider store={store}>
           {() => <Router {...{ history }} />}
         </Provider>
-        <DebugPanel top right bottom>
-          <DevTools store={store}
-            monitor={LogMonitor} />
-        </DebugPanel>
+        {__DEV_TOOLS__ ? 
+          <DebugPanel top right bottom>
+            <DevTools store={store}
+              monitor={LogMonitor} />
+          </DebugPanel> : null
+        }
       </div>
     );
   }

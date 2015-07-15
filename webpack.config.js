@@ -19,6 +19,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('app.css', { allChunks: true }),
+    new webpack.DefinePlugin({
+      __DEV_TOOLS__: JSON.stringify(JSON.parse(process.env.DEV_TOOLS || 'false'))
+    }),
     new HtmlWebpackPlugin({
       title: 'Redux Boilerplate',
       filename: 'index.html',

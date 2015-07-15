@@ -8,7 +8,7 @@ import { helloSelector } from '../selectors/helloWorld';
 class HelloWorld {
 
   static propTypes = {
-    dispatch: PropTypes.func.isRequires,
+    dispatch: PropTypes.func.isRequired,
     helloWorld: PropTypes.instanceOf(Immutable.Map).isRequired
   }
 
