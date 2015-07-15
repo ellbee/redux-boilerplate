@@ -16,7 +16,7 @@
     "build": "npm run clean && webpack",
     "clean": "rm -rf dist",
     "dist": "npm run build -- --config webpack.config.production.js",
-    "lint": "eslint lib",
+    "lint": "eslint src",
     "start": "npm run build && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,6 +30,7 @@
     "react-pure-render": "^1.0.2",
     "react-router": "^1.0.0-beta2",
     "redux": "^1.0.0-rc",
+    "redux-devtools": "0.1.0",
     "react-redux": "^0.2.1",
     "reselect": "0.0.1",
     "transducers.js": "^0.3.2",

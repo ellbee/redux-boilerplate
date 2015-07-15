@@ -30,6 +30,7 @@
     "no-multiple-empty-lines": 1,
     "no-use-before-define": [2, "nofunc"],
     "no-alert": 0,
-    "new-cap": 0
+    "new-cap": 0,
+    "strict": [0, 'global']
   }
 }

@@ -8,6 +8,7 @@ import { helloSelector } from '../selectors/helloWorld';
 class HelloWorld {
 
   static propTypes = {
+    dispatch: PropTypes.func.isRequires,
     helloWorld: PropTypes.instanceOf(Immutable.Map).isRequired
   }
 
@@ -22,7 +23,7 @@ class HelloWorld {
         <div>{this.props.helloWorld.get('name')} says "Hello, World!"</div>
         <button onClick={::this.changeName}>Click</button>
       </div>
-    )
+    );
   }
 }
 
