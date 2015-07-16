@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { logger, thunk } from '../middleware';
+import { logger } from '../middleware';
+import thunk from 'redux-thunk';
 import Router from './Router';
 import * as reducers from '../reducers';
 import { devTools, persistState } from 'redux-devtools';
