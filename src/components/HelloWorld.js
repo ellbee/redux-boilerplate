@@ -5,7 +5,7 @@ import Immutable from 'immutable';
 import { helloSelector } from '../selectors/helloWorld';
 
 @connect(helloSelector)
-class HelloWorld {
+class HelloWorld extends React.Component {
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
