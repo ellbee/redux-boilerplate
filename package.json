@@ -34,7 +34,7 @@
     "redux": "^1.0.0-rc",
     "redux-devtools": "0.1.0",
     "redux-thunk": "^0.1.0",
-    "reselect": "0.0.1",
+    "reselect": "0.0.2",
     "transducers.js": "^0.3.2",
     "whatwg-fetch": "^0.9.0"
   },
