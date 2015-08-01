@@ -1,5 +1,11 @@
-//import { createSelector } from 'reselect';
+import { createSelector } from 'reselect';
 
-export function helloSelector(state) {
-  return { helloWorld: state.helloWorld };
-}
+const helloSelector = (state) => state.helloWorld;
+
+export const upperHelloSelector = createSelector(
+  helloSelector,
+  (hello) => ({
+    helloWorld: hello,
+    upper: hello.get('name').toUpperCase()
+  })
+);

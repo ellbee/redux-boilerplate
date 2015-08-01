@@ -23,12 +23,7 @@ if(__DEV_TOOLS__) {
 const reducer = combineReducers(reducers);
 const store = finalCreateStore(reducer);
 
-export default class Root extends React.Component {
-
-  static propTypes = {
-    history: PropTypes.object.isRequired
-  }
-
+class Root extends React.Component {
   render () {
     const { history } = this.props;
     return (
@@ -46,3 +41,9 @@ export default class Root extends React.Component {
     );
   }
 }
+
+Root.propTypes = {
+  history: PropTypes.object.isRequired
+};
+
+export default Root;

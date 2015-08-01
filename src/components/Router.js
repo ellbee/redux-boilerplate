@@ -5,11 +5,6 @@ import { Router, Route } from 'react-router';
 import HelloWorld from './HelloWorld';
 
 class AppRouter extends React.Component {
-
-  static propTypes = {
-    history: React.PropTypes.object.isRequired
-  }
-
   render() {
     return (
       <Router {...this.props}>
@@ -18,5 +13,9 @@ class AppRouter extends React.Component {
     );
   }
 }
+
+AppRouter.propTypes = {
+  history: React.PropTypes.object.isRequired
+};
 
 export default AppRouter;
