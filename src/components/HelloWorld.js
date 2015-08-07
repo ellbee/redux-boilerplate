@@ -1,14 +1,15 @@
 import React, { PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Immutable from 'immutable';
-import { changeName as changeNameActionCreator } from '../actions/helloWorld';
+import { changeName } from '../actions/helloWorld';
 import { upperHelloSelector } from '../selectors/helloWorld';
 
 class HelloWorld extends React.Component {
 
-  changeName() {
-    const { props: { changeName, dispatch } } = this;
-    dispatch(changeNameActionCreator(this.props.helloWorld.get('name')));
+  onChangeName() {
+    const { props: { changeName, helloWorld } } = this;
+    changeName(helloWorld.get('name'));
   }
 
   render() {
@@ -16,16 +17,20 @@ class HelloWorld extends React.Component {
       <div>
         <div>{this.props.helloWorld.get('name')} says "Hello, World!"</div>
         <div>{this.props.upper} says "Hello, World!"</div>
-        <button onClick={this.changeName.bind(this)}>Click</button>
+        <button onClick={this.onChangeName.bind(this)}>Click</button>
       </div>
     );
   }
 }
 
 HelloWorld.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   helloWorld: PropTypes.instanceOf(Immutable.Map).isRequired,
   upper: PropTypes.string.isRequired
 };
 
-export default connect(upperHelloSelector)(HelloWorld);
+export default connect(
+  upperHelloSelector,
+  dispatch => ({
+    changeName: name => dispatch(changeName(name))
+  })
+)(HelloWorld);
