@@ -29,7 +29,7 @@
     "parse-link-header": "^0.2.0",
     "react": "^0.13.3",
     "react-pure-render": "^1.0.2",
-    "react-redux": "^0.7.0",
+    "react-redux": "^0.8.0",
     "react-router": "^1.0.0-beta3",
     "redux": "^1.0.0-rc",
     "redux-devtools": "0.2.0",
