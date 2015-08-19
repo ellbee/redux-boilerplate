@@ -6,5 +6,5 @@ const history = new History();
 
 React.render(
   <Root history={history}/>,
-  document.body
+  document.getElementById('app')
 );
