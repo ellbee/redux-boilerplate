@@ -1,12 +1,12 @@
 import rootReducer from '../reducers';
-import { combineReducers, applyMiddleware, createStore, compose } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import logger from '../middleware/logger';
 import thunk from 'redux-thunk';
 import { devTools, persistState } from 'redux-devtools';
 
 let finalCreateStore;
 
-if(__DEV_TOOLS__) {
+if (__DEV_TOOLS__) {
   finalCreateStore = compose(
     applyMiddleware(logger, thunk),
     devTools(),
@@ -17,7 +17,6 @@ if(__DEV_TOOLS__) {
 }
 
 const configureStore = () => {
-
   const store = finalCreateStore(rootReducer);
 
   if (module.hot) {
@@ -29,6 +28,6 @@ const configureStore = () => {
   }
 
   return store;
-}
+};
 
 export default configureStore;

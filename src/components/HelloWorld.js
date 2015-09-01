@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Immutable from 'immutable';
 import { changeName } from '../actions/helloWorld';
@@ -8,8 +7,7 @@ import { upperHelloSelector } from '../selectors/helloWorld';
 class HelloWorld extends React.Component {
 
   onChangeName() {
-    const { props: { changeName, helloWorld } } = this;
-    changeName(helloWorld.get('name'));
+    this.props.changeName(this.props.helloWorld.get('name'));
   }
 
   render() {
@@ -25,6 +23,7 @@ class HelloWorld extends React.Component {
 
 HelloWorld.propTypes = {
   helloWorld: PropTypes.instanceOf(Immutable.Map).isRequired,
+  changeName: PropTypes.func.isRequired,
   upper: PropTypes.string.isRequired
 };
 

@@ -7,7 +7,7 @@ const initialState = Immutable.Map({name: 'Turtle'});
 export default createReducer(initialState, {
   [ActionTypes.HelloWorld.changeName](state, action) {
     let name = action.name;
-    switch(name) {
+    switch (name) {
     case 'Turtle':
       name = 'E';
       break;
