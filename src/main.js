@@ -1,8 +1,8 @@
 import React from 'react';
 import Root from './components/Root';
-import History from 'react-router/lib/BrowserHistory';
+import { createHistory } from 'history';
 
-const history = new History();
+const history = createHistory();
 
 React.render(
   <Root history={history}/>,
