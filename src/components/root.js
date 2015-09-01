@@ -4,24 +4,10 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import logger from '../middleware/logger';
 import thunk from 'redux-thunk';
 import Router from './Router';
-import * as reducers from '../reducers';
-import { devTools, persistState } from 'redux-devtools';
+import configureStore from '../store/configureStore';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
-let finalCreateStore;
-if(__DEV_TOOLS__) {
-  finalCreateStore = compose(
-    applyMiddleware(logger, thunk),
-    devTools(),
-    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
-    createStore
-  );
-} else {
-  finalCreateStore = applyMiddleware(logger, thunk)(createStore);
-}
-
-const reducer = combineReducers(reducers);
-const store = finalCreateStore(reducer);
+const store = configureStore();
 
 class Root extends React.Component {
   render () {
