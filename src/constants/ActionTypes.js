@@ -1,8 +1,6 @@
-import keyMirror from 'react/lib/keyMirror';
-
 export default {
-  HelloWorld: keyMirror({
-    changeName: null
-  })
+  HelloWorld: {
+    changeName: 'changeName'
+  }
 };
 
