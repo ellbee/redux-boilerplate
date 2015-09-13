@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route } from 'react-router';
 import { ReduxRouter } from 'redux-react-router';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import configureStore from './store/configureStore';
-import HelloWorld from './components/HelloWorld';
 
 const store = configureStore();
 

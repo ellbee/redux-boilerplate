@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Immutable from 'immutable';
 import { changeName } from '../actions/helloWorld';
 import { upperHelloSelector } from '../selectors/helloWorld';
-import { pushState } from 'redux-react-router';
 
 class HelloWorld extends React.Component {
 
