@@ -3,7 +3,7 @@ import { applyMiddleware, createStore, compose } from 'redux';
 import logger from '../middleware/logger';
 import thunk from 'redux-thunk';
 import { devTools, persistState } from 'redux-devtools';
-import { reduxReactRouter } from 'redux-react-router';
+import { reduxReactRouter } from 'redux-router';
 import { createHistory } from 'history';
 import React from 'react';
 import { Route } from 'react-router';
