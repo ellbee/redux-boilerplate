@@ -2,22 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ReduxRouter } from 'redux-router';
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import configureStore from './store/configureStore';
+import { createDevTools } from 'redux-devtools';
+import LogMonitor from 'redux-devtools-log-monitor';
+import DockMonitor from 'redux-devtools-dock-monitor';
+import DevTools from './components/DevTools';
 
 const store = configureStore();
 
 ReactDOM.render(
   <div>
     <Provider store={store}>
-      <ReduxRouter />
+      <div>
+        <ReduxRouter />
+        {__DEV_TOOLS__ ?
+          <DevTools /> : null
+        }
+      </div>
     </Provider>
-    {__DEV_TOOLS__ ?
-      <DebugPanel top right bottom>
-        <DevTools store={store}
-          monitor={LogMonitor} />
-      </DebugPanel> : null
-    }
   </div>,
   document.getElementById('app')
 );
