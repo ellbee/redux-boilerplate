@@ -18,5 +18,5 @@ npm start
 
 Run with devtools:
 ```
-npm run dev-tools
+npm run devtools
 ```
