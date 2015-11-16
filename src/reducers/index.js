@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import helloWorld from './helloWorld';
-import { routerStateReducer as router } from 'redux-router';
+import { routeReducer as routing} from 'redux-simple-router';
 
 const rootReducer = combineReducers({
-  router,
+  routing,
   helloWorld
 });
 
