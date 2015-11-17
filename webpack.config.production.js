@@ -6,7 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
   entry: {
-    app: './src/main.js'
+    app: './src/index.js'
   },
   output: {
     filename: '[name].min.js',
