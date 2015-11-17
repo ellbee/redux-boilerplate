@@ -2,9 +2,7 @@ import rootReducer from '../reducers/index';
 import { applyMiddleware, createStore, compose } from 'redux';
 import logger from '../middleware/logger';
 import thunk from 'redux-thunk';
-import { devTools, persistState } from 'redux-devtools';
-import React from 'react';
-import { Route } from 'react-router';
+import { persistState } from 'redux-devtools';
 import DevTools from '../components/DevTools';
 
 let finalCreateStore;
