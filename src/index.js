@@ -5,7 +5,7 @@ import { Route, Router } from 'react-router';
 import createHistory from 'history/lib/createBrowserHistory';
 import { syncReduxAndRouter } from 'redux-simple-router';
 import DevTools from './components/DevTools';
-import HelloWorld from './components/HelloWorld';
+import HelloWorld from './containers/HelloWorld';
 import configureStore from './store/configureStore';
 
 const store = configureStore();
