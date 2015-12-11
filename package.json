@@ -24,7 +24,7 @@
   "dependencies": {
     "babel-runtime": "^5.8.25",
     "classnames": "^2.1.5",
-    "history": "^1.12.5",
+    "history": "1.13.1",
     "immutable": "^3.7.5",
     "js-csp": "^0.5.0",
     "parse-link-header": "^0.4.1",
@@ -34,7 +34,7 @@
     "react-redux": "^4.0.0",
     "react-router": "^1.0.0",
     "redux": "^3.0.2",
-    "redux-simple-router": "0.0.10",
+    "redux-simple-router": "1.0.0",
     "redux-thunk": "^1.0.0",
     "reselect": "2.0.0",
     "transducers.js": "^0.3.2",
