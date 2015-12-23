@@ -24,7 +24,7 @@
   "dependencies": {
     "babel-runtime": "^5.8.25",
     "classnames": "^2.1.5",
-    "history": "1.13.1",
+    "history": "^1.17.0",
     "immutable": "^3.7.5",
     "js-csp": "^0.5.0",
     "parse-link-header": "^0.4.1",
