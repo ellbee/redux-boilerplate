@@ -4,12 +4,16 @@ import logger from '../middleware/logger';
 import thunk from 'redux-thunk';
 import { persistState } from 'redux-devtools';
 import DevTools from '../components/DevTools';
+import { browserHistory } from 'react-router';
+import { syncHistory } from 'redux-simple-router';
+
+const reduxRouterMiddleware = syncHistory(browserHistory);
 
 let finalCreateStore;
 
 if (__DEV_TOOLS__) {
   finalCreateStore = compose(
-    applyMiddleware(logger, thunk),
+    applyMiddleware(logger, thunk, reduxRouterMiddleware),
     DevTools.instrument(),
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
   )(createStore);
@@ -29,7 +33,11 @@ const configureStore = () => {
       store.replaceReducer(nextRootReducer);
     });
   }
-
+  
+  if (__DEV_TOOLS__) {
+    reduxRouterMiddleware.listenForReplays(store);
+  }
+  
   return store;
 };
 
