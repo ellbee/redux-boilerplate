@@ -1,0 +1,42 @@
+/* Normalizes margin, padding - This must be first*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td, object, iframe
+{ margin: 0; padding: 0; }
+
+:root {
+  --fontSize: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input, textarea, keygen, select, button {
+  font-family: inherit;
+  font-size: var(--fontSize);
+}
+
+h1,h2,h3,h4,h5,h6 { font-size: 100%; }
+
+ol,ul { list-style: none; }
+
+img { border: 0; }
+
+html{
+	height:100%;
+}
+
+body {
+  font-family: Verdana, Arial, Helvetica;
+  font-size: var(--fontSize);
+  height:100%;
+}
+
+label {
+  font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+

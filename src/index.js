@@ -4,7 +4,9 @@ import { Provider } from 'react-redux';
 import DevTools from './components/DevTools';
 import HelloWorld from './containers/HelloWorld';
 import configureStore from './store/configureStore';
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router';
+
+import './css/normalize.css';
 
 const store = configureStore();
 
