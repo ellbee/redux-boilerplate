@@ -3,7 +3,7 @@
 thumb.db
 
 # node_modules
-/node_modules
+node_modules/
 
 # config files
 # /config/index.js

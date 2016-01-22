@@ -27,6 +27,11 @@ module.exports = {
       template: 'index.template.html'
     })
   ],
+  resolve: {
+    alias: {
+      reporterOptions: path.join(__dirname, 'reporterOptions.js')
+    }
+  },
   module: {
     loaders: [
       { test: /\.css$/,
