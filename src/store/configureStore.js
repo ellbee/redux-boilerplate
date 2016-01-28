@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { persistState } from 'redux-devtools';
 import DevTools from '../components/DevTools';
 import { browserHistory } from 'react-router';
-import { syncHistory } from 'redux-simple-router';
+import { syncHistory } from 'react-router-redux';
 
 const reduxRouterMiddleware = syncHistory(browserHistory);
 
