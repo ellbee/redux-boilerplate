@@ -9,22 +9,22 @@ import { syncHistory } from 'react-router-redux';
 
 const reduxRouterMiddleware = syncHistory(browserHistory);
 
-let finalCreateStore;
+let middleware;
 
 if (__DEV_TOOLS__) {
-  finalCreateStore = compose(
+  middleware = compose(
     applyMiddleware(logger, thunk, reduxRouterMiddleware),
     DevTools.instrument(),
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
-  )(createStore);
+  );
 } else {
-  finalCreateStore = compose(
+  middleware = compose(
     applyMiddleware(logger, thunk),
-  )(createStore);
+  );
 }
 
 const configureStore = () => {
-  const store = finalCreateStore(rootReducer);
+  const store = createStore(rootReducer, middleware);
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
