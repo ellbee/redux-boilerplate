@@ -1,19 +1,15 @@
-import rootReducer from '../reducers/index';
 import { applyMiddleware, createStore, compose } from 'redux';
-import logger from '../middleware/logger';
-import thunk from 'redux-thunk';
 import { persistState } from 'redux-devtools';
+import thunk from 'redux-thunk';
+import rootReducer from '../reducers/index';
 import DevTools from '../components/DevTools';
-import { browserHistory } from 'react-router';
-import { syncHistory } from 'react-router-redux';
-
-const reduxRouterMiddleware = syncHistory(browserHistory);
+import logger from '../middleware/logger';
 
 let middleware;
 
 if (__DEV_TOOLS__) {
   middleware = compose(
-    applyMiddleware(logger, thunk, reduxRouterMiddleware),
+    applyMiddleware(logger, thunk),
     DevTools.instrument(),
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
   );
@@ -33,11 +29,7 @@ const configureStore = () => {
       store.replaceReducer(nextRootReducer);
     });
   }
-  
-  if (__DEV_TOOLS__) {
-    reduxRouterMiddleware.listenForReplays(store);
-  }
-  
+
   return store;
 };
 

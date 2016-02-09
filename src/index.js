@@ -5,16 +5,18 @@ import DevTools from './components/DevTools';
 import HelloWorld from './containers/HelloWorld';
 import configureStore from './store/configureStore';
 import { Router, Route, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import './css/normalize.css';
 
 const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
   <div>
     <Provider store={store}>
       <div>
-        <Router history={browserHistory}>
+        <Router history={history}>
           <Route path="/" component={HelloWorld} />
         </Router>
         {__DEV_TOOLS__ ?
