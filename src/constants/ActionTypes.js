@@ -1,6 +1,6 @@
 export default {
   HelloWorld: {
-    changeName: 'changeName'
-  }
+    changeName: 'changeName',
+  },
 };
 

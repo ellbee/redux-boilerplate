@@ -11,11 +11,11 @@ if (__DEV_TOOLS__) {
   middleware = compose(
     applyMiddleware(logger, thunk),
     DevTools.instrument(),
-    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
+    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
   );
 } else {
   middleware = compose(
-    applyMiddleware(logger, thunk),
+    applyMiddleware(logger, thunk)
   );
 }
 

@@ -6,8 +6,11 @@ import { upperHelloSelector } from '../selectors/helloWorld';
 
 class HelloWorld extends React.Component {
 
-  onChangeName() {
-    this.props.changeName(this.props.helloWorld.get('name'));
+  constructor(props) {
+    super(props);
+    this.onChangeName = () => {
+      this.props.changeName(this.props.helloWorld.get('name'));
+    };
   }
 
   render() {
@@ -15,7 +18,7 @@ class HelloWorld extends React.Component {
       <div>
         <div>{this.props.helloWorld.get('name')} says "Hello, World!"</div>
         <div>{this.props.upper} says "Hello, World!"</div>
-        <button onClick={this.onChangeName.bind(this)}>Click</button>
+        <button onClick={this.onChangeName}>Click</button>
       </div>
     );
   }
@@ -24,12 +27,12 @@ class HelloWorld extends React.Component {
 HelloWorld.propTypes = {
   helloWorld: PropTypes.instanceOf(Immutable.Map).isRequired,
   changeName: PropTypes.func.isRequired,
-  upper: PropTypes.string.isRequired
+  upper: PropTypes.string.isRequired,
 };
 
 export default connect(
   upperHelloSelector,
   dispatch => ({
-    changeName: name => dispatch(changeName(name))
+    changeName: name => dispatch(changeName(name)),
   })
 )(HelloWorld);

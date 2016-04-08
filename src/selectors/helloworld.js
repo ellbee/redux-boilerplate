@@ -6,6 +6,6 @@ export const upperHelloSelector = createSelector(
   helloSelector,
   (hello) => ({
     helloWorld: hello,
-    upper: hello.get('name').toUpperCase()
+    upper: hello.get('name').toUpperCase(),
   })
 );
